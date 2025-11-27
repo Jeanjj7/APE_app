@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Voluntário | APE</title>
+    <link rel="stylesheet" href="style_login.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Cadastro de Voluntário</h1>
+
+        <form id="formVoluntario">
+
+            <label>Nome Completo:</label>
+            <input type="text" id="nomeVol" required>
+
+            <label>Email:</label>
+            <input type="email" id="emailVol" required>
+
+            <label>CPF:</label>
+            <input type="text" id="cpfVol" maxlength="14" placeholder="000.000.000-00" required>
+
+            <label>Área de Conhecimento:</label>
+            <input type="text" id="areaVol" placeholder="Ex: Matemática, Inglês..." required>
+
+            <label>Disponibilidade:</label>
+            <input type="text" id="dispVol" placeholder="Ex: Manhã, Tarde, Noite" required>
+
+            <label>Senha:</label>
+            <div class="senha-container">
+                <input type="password" id="senhaVol" required>
+                <span class="toggle" onclick="mostrarSenha('senhaVol')">👁️</span>
+            </div>
+
+            <label>Confirmar Senha:</label>
+            <div class="senha-container">
+                <input type="password" id="confVol" required>
+                <span class="toggle" onclick="mostrarSenha('confVol')">👁️</span>
+            </div>
+
+            <p id="erroVoluntario" class="erro"></p>
+
+            <button type="button" id="btnCadastrarVol">Cadastrar</button>
+
+        </form>
+
+        <button class="voltar" onclick="window.location.href='login_voluntario.html'">⬅️ Voltar</button>
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+    <script>
+
+        function mostrarSenha(id) {
+            let campo = document.getElementById(id);
+            campo.type = campo.type === "password" ? "text" : "password";
+        }
+
+        // 🔥 VALIDAR SENHA
+        function validarSenhaVol() {
+            const senha = $("#senhaVol").val();
+            const confirmar = $("#confVol").val();
+            const erro = $("#erroVoluntario");
+
+            const maiuscula = /[A-Z]/;
+            const numero = /\d/;
+            const especial = /[@#]/;
+
+            if (!maiuscula.test(senha)) {
+                erro.text("A senha deve conter pelo menos 1 letra maiúscula.");
+                return false;
+            }
+            if (!numero.test(senha)) {
+                erro.text("A senha deve conter pelo menos 1 número.");
+                return false;
+            }
+            if (!especial.test(senha)) {
+                erro.text("A senha deve conter @ ou #.");
+                return false;
+            }
+            if (senha !== confirmar) {
+                erro.text("As senhas não coincidem.");
+                return false;
+            }
+
+            erro.text("");
+            return true;
+        }
+
+        // ➕ CADASTRAR VOLUNTÁRIO
+        $("#btnCadastrarVol").click(function () {
+
+            if (!validarSenhaVol()) return;
+
+            let nome = $("#nomeVol").val();
+            let email = $("#emailVol").val();
+            let cpf = $("#cpfVol").val();
+            let area = $("#areaVol").val();
+            let disp = $("#dispVol").val();
+            let senha = $("#senhaVol").val();
+
+            $.ajax({
+                url: "inserir_voluntario.php",
+                type: "POST",
+                data: {
+                    nome: nome,
+                    email: email,
+                    cpf: cpf,
+                    area_conhecimento: area,
+                    disponibilidade: disp,
+                    senha: senha
+                },
+                success: function (resposta) {
+                    alert(resposta);
+
+                    setTimeout(() => {
+                        location.reload();
+                    }, 600);
+                },
+                error: function () {
+                    alert("Erro ao cadastrar voluntário!");
+                }
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>

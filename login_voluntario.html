@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Voluntário - APE</title>
+
+    <link rel="stylesheet" href="alunod.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="login-box">
+            <img src="imagens/icone1.png" alt="Logo APE" class="logo">
+            <h1>Login do Voluntário</h1>
+
+            <form id="formLoginVoluntario">
+
+                <label for="usuario">E-mail ou CPF</label>
+                <input type="text" id="usuario" placeholder="Digite seu e-mail ou CPF" required>
+
+                <label for="senha">Senha</label>
+                <div class="senha-container">
+                    <input type="password" id="senha" placeholder="Digite sua senha" required>
+                    <span class="toggle" id="toggleSenha" onclick="mostrarSenha()">😉</span>
+                </div>
+
+                <button type="submit" id="btnEntrarVoluntario" class="btn">Entrar</button>
+
+                <div class="links">
+                    <p><a href="#">Esqueceu sua senha?</a> | <a href="cadastro_voluntario.html">Criar conta</a></p>
+                </div>
+            </form>
+
+            <button class="btn-voltar" onclick="window.location.href='index.html'">← Voltar</button>
+        </div>
+    </div>
+
+    <script>
+        // Login via AJAX
+        $("#formLoginVoluntario").submit(function (event) {
+            event.preventDefault();
+
+            var usuario = $("#usuario").val();
+            var senha = $("#senha").val();
+
+            $.ajax({
+                url: "fazer_login_voluntario.php",
+                type: "POST",
+                data: {
+                    usuario_digitado: usuario,
+                    senha_digitada: senha
+                },
+                success: function (resposta) {
+                    resposta = resposta.trim();
+
+                    if (resposta === "sucesso") {
+                        window.location.href = "aulas_voluntario.html";
+                    } else if (resposta === "erro") {
+                        alert("E-mail/CPF ou senha incorretos!");
+                    } else {
+                        alert("Erro no login: " + resposta);
+                    }
+                },
+                error: function () {
+                    alert("Erro ao conectar com o servidor!");
+                }
+            });
+        });
+
+        // Mostrar / ocultar senha
+        function mostrarSenha() {
+            let campo = document.getElementById("senha");
+            let botao = document.getElementById("toggleSenha");
+
+            if (campo.type === "password") {
+                campo.type = "text";
+                botao.textContent = "🙈";
+            } else {
+                campo.type = "password";
+                botao.textContent = "😉";
+            }
+        }
+    </script>
+
+</body>
+</html>

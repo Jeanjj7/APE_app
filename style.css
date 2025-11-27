@@ -1,0 +1,484 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* ====== MENU DE NAVEGAÇÃO ====== */
+header {
+    background-color: #003eb9;
+    padding: 10px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo h2 {
+    color: #ffffffc7;
+    font-weight: 800;
+    font-size: 22px;
+    margin: 0;
+}
+
+/* ====== LISTA DO MENU ====== */
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #0c863f;
+}
+
+/* ====== BOTÃO MENU MOBILE ====== */
+.menu-toggle {
+    display: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.3s;
+}
+
+.menu-toggle.aberto {
+    transform: rotate(90deg);
+}
+
+/* ====== BANNER ====== */
+#banner {
+    position: relative;
+    height: 45vw;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+#banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(imagens/header.png);
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px);
+    transform: scale(1.1);
+    z-index: 1;
+}
+
+#conteudo_banner {
+    position: relative;
+    z-index: 2;
+    padding-left: 5vw;
+}
+#conteudo_banner {
+    width: 600px;
+    margin-left: 5%;
+}
+
+#conteudo_banner h1 {
+    font-size: 3vw;
+    line-height: 3.5vw;
+}
+
+#conteudo_banner p {
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+#btn_cadastro_aluno,
+#btn_cadastro_voluntario,
+#btn_cadastro_aluno2,
+#btn_cadastro_voluntario2 {
+    background-color: #08a549;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btn_cadastro_voluntario,
+#btn_cadastro_voluntario2 {
+    background-color: #115199;
+}
+
+#btn_cadastro_aluno:hover,
+#btn_cadastro_voluntario:hover,
+#btn_cadastro_aluno2:hover,
+#btn_cadastro_voluntario2:hover {
+    transform: scale(1.05);
+}
+
+/* ====== SEÇÕES GERAIS ====== */
+.secao_clara {
+    background-color: #f5f5f5;
+}
+
+.secao_escura {
+    background-color: #202226;
+}
+
+.secoes {
+    display: flex;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.secao_clara {
+    color: #000;
+}
+
+.conteudo_secao {
+    max-width: 700px;
+    margin: 20px;
+}
+
+.icones {
+    width: 170px;
+    margin: 20px;
+}
+.icones1 {
+    width: 120px;
+    margin: 20px;
+}
+
+.texto_verde {
+    color: #0b7e3b;
+    font-weight: bold;
+}
+
+.texto_azul {
+    color: #0c4586;
+    font-weight: bold;
+}
+.texto_cinza {
+    color: rgb(214, 214, 214);
+    font-weight: bold;
+}
+
+
+/* ====== FEEDBACK ====== */
+#feedback {
+    background-color: #202226;
+    color: white;
+    text-align: center;
+    padding-bottom: 60px;
+    margin-bottom: 60px;  
+}
+
+
+.cards-feedback {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.card {
+    background-color: #2e2f33;
+    border-radius: 12px;
+    width: 280px;
+    padding: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+    border: 3px solid #00c853;
+}
+
+.card h3 {
+    color: #00c853;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 15px;
+    color: #f0f0f0;
+    line-height: 1.4em;
+}
+
+/* ====== COMO FUNCIONA ====== */
+.lista-funciona {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    max-width: 700px;
+    margin: 20px auto;
+    font-size: 17px;
+    line-height: 1.8em;
+}
+.lista-funciona li {
+    margin-bottom: 10px;
+}
+#como-funciona {
+    margin-top: 80px; /* separação clara */
+}
+
+/* ====== PARCEIROS ====== */
+.logos-parceiros {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
+}
+.logos-parceiros img {
+    width: 140px;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+.logos-parceiros img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* ====== MATERIAIS ====== */
+.materias {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 40px;
+}
+.materia {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+.materia:hover {
+    transform: translateY(-5px);
+}
+.materia h3 {
+    color: #1565c0;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.materia p {
+    color: #333;
+    font-size: 15px;
+}
+.explicacao-voluntario {
+    margin-top: 40px;
+    font-size: 16px;
+    color: #202226;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6em;
+}
+
+/* ====== CONTATO / RODAPÉ ====== */
+#contato {
+    text-align: center;
+}
+
+#contato p {
+    font-size: 16px;
+}
+
+#copyright {
+    font-size: 14px;
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+/* ====== COMENTÁRIOS ====== */
+.comentarios {
+    background-color: #2e2f33;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.comentarios h2 {
+    color: #00c853;
+    margin-bottom: 15px;
+}
+
+.comentarios form input,
+.comentarios form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 10px;
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+}
+
+.comentarios form textarea {
+    resize: none;
+}
+
+.estrelas {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.estrela {
+    font-size: 28px;
+    color: gray;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.estrela:hover {
+    transform: scale(1.2);
+}
+
+.comentarios button {
+    background-color: #00c853;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+    margin: 15px auto;
+}
+
+.comentarios button:hover {
+    background-color: #009640;
+}
+
+#listaComentarios {
+    margin-top: 20px;
+}
+
+.comentario {
+    background-color: #1e1f21;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.comentario h3 {
+    color: #00c853;
+    margin: 0 0 5px;
+}
+
+.comentario p {
+    color: #fff;
+    margin: 5px 0;
+}
+
+.estrelas-avaliadas {
+    color: gold;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* ====== RESPONSIVIDADE ====== */
+@media screen and (max-width: 900px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #0044cc;
+        margin-top: 15px;
+        border-radius: 10px;
+    }
+
+    nav ul.ativo {
+        display: flex;
+        animation: aparecer 0.3s ease;
+    }
+
+    @keyframes aparecer {
+        from {opacity: 0; transform: translateY(-10px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    nav ul li {
+        padding: 12px;
+    }
+
+    nav ul li a {
+        display: block;
+        color: #fff;
+        text-align: center;
+    }
+
+    #banner {
+        height: auto;
+        padding: 60px 20px;
+        text-align: center;
+    }
+
+    #conteudo_banner {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    #conteudo_banner h1 {
+        font-size: 6vw;
+        line-height: 7vw;
+    }
+
+    .secoes {
+        flex-direction: column;
+    }
+
+    .materia, .card {
+        width: 80%;
+    }
+
+    .comentarios {
+        padding: 20px;
+    }
+}

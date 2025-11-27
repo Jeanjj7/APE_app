@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #1565c0, #00c853);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container principal */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.login-box {
+    background-color: white;
+    border-radius: 16px;
+    padding: 40px 55px;
+    width: 420px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Logo */
+.logo {
+    width: 90px;
+    margin-bottom: 15px;
+}
+
+/* Título */
+h1 {
+    color: #1565c0;
+    font-size: 26px;
+    margin-bottom: 25px;
+}
+
+/* Labels */
+label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #202226;
+    display: block;
+    margin-bottom: 6px;
+    text-align: left;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 22px;
+    border: 1px solid #cfcfcf;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #f8faff;
+    transition: 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #1565c0;
+    background-color: #ffffff;
+    box-shadow: 0 0 4px rgba(21, 101, 192, 0.4);
+}
+
+/* ------------------ CAMPO DE SENHA COM ÍCONE 😉 / 🙈 ------------------ */
+
+.senha-container {
+    position: relative;
+    width: 92%;
+    margin-bottom: 22px;
+}
+
+.senha-container input {
+    width: 100%;
+    padding-right: 45px;
+}
+
+.senha-container .toggle {
+    position: absolute;
+    right: -35px;
+    top: 28%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 23px;
+    opacity: 0.75;
+    transition: 0.2s;
+    user-select: none;
+}
+
+.senha-container .toggle:hover {
+    opacity: 1;
+}
+
+
+/* ---------------------------------------------------------------------- */
+
+/* Botão de login */
+.btn {
+    width: 100%;
+    background-color: #00c853;
+    color: white;
+    border: none;
+    padding: 13px;
+    font-size: 17px;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #00a946;
+}
+
+/* Links (Esqueceu / Criar conta) */
+.links {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.links a {
+    color: #1565c0;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+/* Botão voltar */
+.btn-voltar {
+    margin-top: 25px;
+    background-color: transparent;
+    border: 2px solid #1565c0;
+    color: #1565c0;
+    font-weight: 600;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-voltar:hover {
+    background-color: #1565c0;
+    color: white;
+}

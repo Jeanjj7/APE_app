@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APE - Apoio para Educação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ====== MENU DE NAVEGAÇÃO ====== -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h2>APE - Apoio para Educação</h2>
+            </div>
+
+            <!-- Botão do menu (aparece em celulares) -->
+            <div class="menu-toggle" id="menu-toggle">☰</div>
+
+            <ul id="menu-list">
+                <li><a href="#banner">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#voluntarios">Voluntários</a></li>
+                <li><a href="#alunos">Alunos</a></li>
+                <li><a href="#feedback">Feedback</a></li>
+                <li><a href="#como-funciona">Como Funciona</a></li>
+                <li><a href="#parceiros">Parceiros</a></li>
+                <li><a href="#materiais">Materiais</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ====== BANNER PRINCIPAL ====== -->
+    <div id="banner">
+        <div id="conteudo_banner">
+            <h1>
+                Plataforma 100% gratuita<br> para conectar <span class="texto_verde">alunos</span> e <span class="texto_azul">voluntários</span>
+            </h1>
+            <p>Juntos podemos transformar a educação!</p>
+            <p>Cadastre-se agora e encontre apoio educacional gratuito.</p>
+
+            <div id="btn_cadastro_aluno" onclick="window.location.href='login_aluno.html'">
+                Sou Aluno
+            </div>
+            <div id="btn_cadastro_voluntario" onclick="window.location.href='login_voluntario.html'">
+                Sou Voluntário
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== SEÇÃO SOBRE ====== -->
+    <div id="sobre" class="secoes secao_clara">
+        <img src="imagens/icone1.png" class="icones1" alt="Sobre">
+        <div class="conteudo_secao">
+            <h1>O que é o <span class="texto_azul">APE</span>?</h1>
+            <p>O APE – Apoio para Educação é uma plataforma gratuita que conecta estudantes que precisam de reforço com voluntários dispostos a ajudar. Nosso objetivo é reduzir desigualdades e apoiar a educação de qualidade.</p>
+        </div>
+    </div>
+
+    <!-- ====== SEÇÃO VOLUNTÁRIOS ====== -->
+    <div id="voluntarios" class="secoes secao_escura">
+        <img src="imagens/icone2.png" class="icones" alt="Voluntários">
+        <div class="conteudo_secao">
+            <h1>Seja um <span class="texto_verde">Voluntário</span></h1>
+            <p>Compartilhe seu conhecimento e ajude estudantes em áreas como Matemática, Português, Ciências e muito mais.</p>
+            <div id="btn_cadastro_voluntario2" onclick="window.location.href='login_voluntario.html'">
+                Quero ser voluntário
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== SEÇÃO ALUNOS ====== -->
+    <div id="alunos" class="secoes secao_clara">
+        <img src="imagens/icone3.png" class="icones" alt="Alunos">
+        <div class="conteudo_secao">
+            <h1>Para <span class="texto_azul">Alunos</span> e responsáveis</h1>
+            <p>Cadastre-se, informe suas dificuldades e encontre um voluntário pronto para ajudar no seu aprendizado.</p>
+            <div id="btn_cadastro_aluno2" onclick="window.location.href='login_aluno.html'">
+                Quero me cadastrar
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== SEÇÃO FEEDBACK ====== -->
+    <div id="feedback" class="secoes secao_escura">
+        <div class="conteudo_secao">
+            <h1>O que dizem nossos <span class="texto_verde">Voluntários</span> e <span class="texto_azul">Alunos</span></h1>
+            <p>Confira alguns depoimentos e deixe o seu comentário abaixo.</p>
+
+            <div class="cards-feedback">
+                <div class="card">
+                    <img src="imagens/voluntario1.png" alt="Voluntário 1">
+                    <h3>Mariana Silva</h3>
+                    <p>“Ser voluntária no APE tem sido uma experiência incrível! Ver o progresso dos alunos é gratificante.”</p>
+                </div>
+
+                <div class="card">
+                    <img src="imagens/aluno1.png" alt="Aluno 1">
+                    <h3>Lucas Andrade</h3>
+                    <p>“Consegui melhorar minhas notas com a ajuda dos voluntários. Eles realmente se importam em ensinar.”</p>
+                </div>
+
+                <div class="card">
+                    <img src="imagens/voluntario2.png" alt="Voluntário 2">
+                    <h3>Paulo Santos</h3>
+                    <p>“O APE é uma forma de contribuir para um futuro melhor. Ensinar é também aprender todos os dias.”</p>
+                </div>
+            </div>
+
+            <!-- ====== COMENTÁRIOS ====== -->
+            <!-- <div class="comentarios">
+                <h2>Deixe seu comentário 💬</h2>
+                <form id="formComentario">
+                    <input type="text" id="nome" placeholder="Seu nome" required>
+                    <textarea id="mensagem" rows="4" placeholder="Escreva seu comentário..." required></textarea>
+                    <div class="estrelas">
+                        <span class="estrela" onclick="avaliar(1)">★</span>
+                        <span class="estrela" onclick="avaliar(2)">★</span>
+                        <span class="estrela" onclick="avaliar(3)">★</span>
+                        <span class="estrela" onclick="avaliar(4)">★</span>
+                        <span class="estrela" onclick="avaliar(5)">★</span>
+                    </div>
+                    <button type="submit">Enviar Comentário</button>
+                </form>
+                <div id="listaComentarios"></div>
+            </div>
+        </div>
+    </div> -->
+
+            <!-- ====== SEÇÃO COMO FUNCIONA ====== -->
+            <div id="como-funciona" class="secoes secao_clara">
+                <div class="conteudo_secao">
+                    <h1>Como Funciona o <span class="texto_azul">APE</span></h1>
+                    <ul class="lista-funciona">
+                        <li><strong>1️⃣ Cadastro:</strong> aluno ou voluntário se registra no site.</li>
+                        <li><strong>2️⃣ Conexão:</strong> a equipe APE conecta perfis compatíveis.</li>
+                        <li><strong>3️⃣ Aulas:</strong> as aulas acontecem online ou por chat.</li>
+                        <li><strong>4️⃣ Acompanhamento:</strong> a equipe monitora o progresso.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ====== SEÇÃO PARCEIROS ====== -->
+            <div id="parceiros" class="secoes secao_escura">
+                <div class="conteudo_secao">
+                    <h1>Nossos <span class="texto_verde">Parceiros</span> e <span class="texto_azul">Apoiadores</span></h1>
+                    <div class="logos-parceiros">
+                        <img src="imagens/parceiro1.png" alt="Parceiro 1">
+                        <img src="imagens/parceiro2.png" alt="Parceiro 2">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== SEÇÃO MATERIAIS ====== -->
+            <div id="materiais" class="secoes secao_clara">
+                <div class="conteudo_secao">
+                    <h1>Cursos e <span class="texto_azul">Materiais Gratuitos</span></h1>
+                    <div class="materias">
+                        <div class="materia">
+                            <h3>📘 Português</h3>
+                            <p>Leitura e redação guiadas por voluntários.</p>
+                        </div>
+                        <div class="materia">
+                            <h3>🧮 Matemática</h3>
+                            <p>Reforço com exercícios passo a passo.</p>
+                        </div>
+                        <div class="materia">
+                            <h3>🔬 Ciências</h3>
+                            <p>Aprendizado leve e prático.</p>
+                        </div>
+                        <div class="materia">
+                            <h3>🌍 História e Geografia</h3>
+                            <p>Compreensão do mundo e da sociedade.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====== CONTATO ====== -->
+            <div id="contato" class="secoes secao_escura">
+                <div class="conteudo_secao">
+                    <h1>Fale Conosco</h1>
+                    <p>Email: contato@ape.org.br</p>
+                    <p>WhatsApp: (11) 99999-9999</p>
+                </div>
+            </div>
+
+            <div id="copyright" class="secoes secao_escura">
+                ©2025 - Projeto APE - Todos os direitos reservados
+            </div>
+
+            <!-- ====== SCRIPT DE COMENTÁRIOS E MENU ====== -->
+            <script>
+                // ====== MENU RESPONSIVO ======
+                const menuToggle = document.getElementById('menu-toggle');
+                const menuList = document.getElementById('menu-list');
+                menuToggle.addEventListener('click', () => {
+                    menuList.classList.toggle('ativo');
+                    menuToggle.classList.toggle('aberto');
+                });
+            </script>
+</body>
+
+</html>
