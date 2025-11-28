@@ -2,16 +2,17 @@
 include "conexao.php";
 
 $nome = $_POST['nome'];
+$data_nascimento = $_POST['data_nascimento'];
 $cpf = $_POST['cpf'];
 $email = $_POST['email'];
+$senha = $_POST['senha'];
 $area = $_POST['area_conhecimento'];
 $disp = $_POST['disponibilidade'];
-$senha = $_POST['senha'];
 
 $sql = "INSERT INTO tb_voluntario
-        (nome, cpf, email, senha, area_conhecimento, disponibilidade)
+        (nome, data_nascimento, cpf, email, senha, area_conhecimento, disponibilidade)
         VALUES
-        ('$nome', '$cpf', '$email', '$senha', '$area', '$disp')";
+        ('$nome', '$data_nascimento', '$cpf', '$email', '$senha', '$area', '$disp')";
 
 $inserir = $pdo->prepare($sql);
 

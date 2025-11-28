@@ -2,7 +2,7 @@
 $maquina = "localhost";
 $usuario = "root";
 $senha = "";
-$nome_do_banco = "db_ape";
+$nome_do_banco = "db_ape1";
 $porta = 3306;
 try {
     $pdo = new PDO("mysql:host=$maquina;port=$porta;dbname=$nome_do_banco;charset=utf8", "$usuario", "$senha");

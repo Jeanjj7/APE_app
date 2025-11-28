@@ -84,7 +84,7 @@ nav ul li a:hover {
     background-image: url(imagens/header.png);
     background-size: cover;
     background-position: center;
-    filter: blur(4px);
+    filter: blur(4px) brightness(0.4); 
     transform: scale(1.1);
     z-index: 1;
 }

@@ -1,0 +1,132 @@
+-- =========================================
+-- BANCO DE DADOS: APE - Apoio Para Educação
+-- =========================================
+CREATE DATABASE db_ape1;
+USE db_ape1;
+
+-- ===============================
+-- TABELA: ALUNO
+-- ===============================
+
+CREATE TABLE tb_aluno (
+    id_aluno INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    cpf VARCHAR(14) UNIQUE NOT NULL,
+    data_nascimento DATE,
+    serie VARCHAR(30),
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(100) NOT NULL,
+    materia ENUM('Matemática', 'Português', 'Inglês', 'História') NOT NULL,
+    escola VARCHAR(150) NOT NULL,
+    id_escola INT
+);
+
+
+INSERT INTO tb_aluno
+(nome, cpf, data_nascimento, serie, email, senha, materia, escola)
+VALUES
+('João Pereira', '111.222.333-44', '2008-03-15', '7º Ano', 'joao.p@gmail.com', '1234', 'Matemática', 'Escola Municipal João Batista'),
+
+('Ana Lima', '555.666.777-88', '2009-07-22', '6º Ano', 'ana.lima@gmail.com', 'abcd', 'Português', 'Colégio Esperança'),
+
+('Carlos Menezes', '999.888.777-66', '2007-11-30', '8º Ano', 'carlos.m@gmail.com', 'senha123', 'História', 'Instituto Aprender Mais');
+
+
+-- ===============================
+-- TABELA: VOLUNTÁRIO
+-- ===============================
+CREATE TABLE tb_voluntario (
+    id_voluntario INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    data_nascimento DATE,
+    cpf VARCHAR(14) UNIQUE NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(100) NOT NULL,
+    area_conhecimento ENUM('Matemática', 'Português', 'Inglês', 'História') NOT NULL,
+    disponibilidade VARCHAR(100)
+);
+
+
+INSERT INTO tb_voluntario
+(nome, data_nascimento, cpf, email, senha, area_conhecimento, disponibilidade)
+VALUES
+('Marcos Almeida', '1990-05-12', '123.456.789-00', 'marcos.almeida@gmail.com', 'senha123', 'Matemática', 'Seg-Sex, 14h às 18h'),
+
+('Fernanda Ribeiro', '1988-09-22', '987.654.321-11', 'fernanda.ribeiro@gmail.com', '1234abcd', 'Português', 'Terças e Quintas, 10h às 12h'),
+
+('Thiago Santos', '1995-03-30', '456.789.123-55', 'thiago.santos@gmail.com', 'abc123', 'História', 'Seg, Qua e Sex, 13h às 17h'),
+
+('Matheus Carvalho', '1992-11-05', '321.654.987-22', 'matheus.carvalho@gmail.com', 'mat123', 'Inglês', 'Sábado, 9h às 12h');
+
+-- ===============================
+-- TABELA: SESSÃO DE TUTORIA
+-- ===============================
+CREATE TABLE tb_sessao_tutoria (
+    id_sessao INT AUTO_INCREMENT PRIMARY KEY,
+    data_sessao DATE NOT NULL,
+    hora_inicio TIME,
+    hora_fim TIME,
+    status_sessao ENUM('Agendada', 'Concluída', 'Cancelada') DEFAULT 'Agendada',
+    link_meet VARCHAR(255),
+    fk_id_aluno INT,
+    fk_id_voluntario INT,
+    FOREIGN KEY (fk_id_aluno) REFERENCES tb_aluno(id_aluno),
+    FOREIGN KEY (fk_id_voluntario) REFERENCES tb_voluntario(id_voluntario)
+);
+
+-- ===============================
+-- TABELA: AULAS GRAVADAS
+-- ===============================
+CREATE TABLE tb_aulas_gravadas (
+    id_aula INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(150) NOT NULL,
+    materia ENUM('Matemática','Português','Inglês','História','Ciências') NOT NULL,
+    link_video VARCHAR(255) NOT NULL,
+    descricao TEXT,
+    data_postagem DATE DEFAULT (CURRENT_DATE),
+    fk_id_sessao INT UNIQUE,
+    fk_id_voluntario INT,
+    fk_id_aluno INT,
+    FOREIGN KEY (fk_id_sessao) REFERENCES tb_sessao_tutoria(id_sessao),
+    FOREIGN KEY (fk_id_voluntario) REFERENCES tb_voluntario(id_voluntario),
+    FOREIGN KEY (fk_id_aluno) REFERENCES tb_aluno(id_aluno)
+);
+
+-- ===============================
+-- TABELA: FEEDBACK 
+-- ===============================
+CREATE TABLE tb_feedback (
+id_feedback INT AUTO_INCREMENT PRIMARY KEY,
+id_sessao INT UNIQUE,
+comentario TEXT,
+avaliacao INT CHECK (avaliacao BETWEEN 1 AND 5),
+data_envio DATE DEFAULT (CURRENT_DATE),
+FOREIGN KEY (id_sessao) REFERENCES tb_sessao_tutoria(id_sessao)
+);
+
+
+-- ===============================
+-- TABELA: RELATÓRIO DE DESEMPENHO
+-- ===============================
+CREATE TABLE tb_relatorio_desempenho (
+id_relatorio INT AUTO_INCREMENT PRIMARY KEY,
+id_aluno INT,
+id_voluntario INT,
+descricao TEXT,
+data_relatorio DATE DEFAULT (CURRENT_DATE),
+FOREIGN KEY (id_aluno) REFERENCES tb_aluno(id_aluno),
+FOREIGN KEY (id_voluntario) REFERENCES tb_voluntario(id_voluntario)
+);
+
+-- ===============================
+-- TABELA: RELATÓRIO DO ALUNO
+-- ===============================
+CREATE TABLE tb_relatorio_aluno (
+id_relatorio_aluno INT AUTO_INCREMENT PRIMARY KEY,
+id_aluno INT,
+desempenho_geral VARCHAR(100),
+observacoes TEXT,
+progresso_percentual DECIMAL(5,2),
+data_registro DATE DEFAULT (CURRENT_DATE),
+FOREIGN KEY (id_aluno) REFERENCES tb_aluno(id_aluno)
+);
